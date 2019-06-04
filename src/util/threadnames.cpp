@@ -1,9 +1,9 @@
-// Copyright (c) 2018 The Bitcoin Core developers
+// Copyright (c) 2018 The Nobilitas Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/nobilitas-config.h>
 #endif
 
 #include <atomic>
@@ -57,6 +57,6 @@ static void SetInternalName(std::string name) { }
 
 void util::ThreadRename(std::string&& name)
 {
-    SetThreadName(("bitcoin-" + name).c_str());
+    SetThreadName(("nobilitas-" + name).c_str());
     SetInternalName(std::move(name));
 }

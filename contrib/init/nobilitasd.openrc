@@ -1,0 +1,92 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/nobilitas/.nobilitas" ]; then
+	NOBILITASD_DEFAULT_DATADIR="/var/lib/nobilitas/.nobilitas"
+else
+	NOBILITASD_DEFAULT_DATADIR="/var/lib/nobilitasd"
+fi
+
+NOBILITASD_CONFIGFILE=${NOBILITASD_CONFIGFILE:-/etc/nobilitas/nobilitas.conf}
+NOBILITASD_PIDDIR=${NOBILITASD_PIDDIR:-/var/run/nobilitasd}
+NOBILITASD_PIDFILE=${NOBILITASD_PIDFILE:-${NOBILITASD_PIDDIR}/nobilitasd.pid}
+NOBILITASD_DATADIR=${NOBILITASD_DATADIR:-${NOBILITASD_DEFAULT_DATADIR}}
+NOBILITASD_USER=${NOBILITASD_USER:-${NOBILITAS_USER:-nobilitas}}
+NOBILITASD_GROUP=${NOBILITASD_GROUP:-nobilitas}
+NOBILITASD_BIN=${NOBILITASD_BIN:-/usr/bin/nobilitasd}
+NOBILITASD_NICE=${NOBILITASD_NICE:-${NICELEVEL:-0}}
+NOBILITASD_OPTS="${NOBILITASD_OPTS:-${NOBILITAS_OPTS}}"
+
+name="Nobilitas Core Daemon"
+description="Nobilitas cryptocurrency P2P network daemon"
+
+command="/usr/bin/nobilitasd"
+command_args="-pid=\"${NOBILITASD_PIDFILE}\" \
+		-conf=\"${NOBILITASD_CONFIGFILE}\" \
+		-datadir=\"${NOBILITASD_DATADIR}\" \
+		-daemon \
+		${NOBILITASD_OPTS}"
+
+required_files="${NOBILITASD_CONFIGFILE}"
+start_stop_daemon_args="-u ${NOBILITASD_USER} \
+			-N ${NOBILITASD_NICE} -w 2000"
+pidfile="${NOBILITASD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${NOBILITASD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${NOBILITASD_USER}:${NOBILITASD_GROUP}" \
+	"${NOBILITASD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${NOBILITASD_USER}:${NOBILITASD_GROUP}" \
+	"${NOBILITASD_PIDDIR}"
+
+	checkpath -f \
+	-o ${NOBILITASD_USER}:${NOBILITASD_GROUP} \
+	-m 0660 \
+	${NOBILITASD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${NOBILITASD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run nobilitasd."
+		eerror "The setting must appear in ${NOBILITASD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Nobilitas Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

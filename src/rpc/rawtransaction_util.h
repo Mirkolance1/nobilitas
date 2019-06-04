@@ -1,9 +1,9 @@
-// Copyright (c) 2017-2018 The Bitcoin Core developers
+// Copyright (c) 2017-2018 The Nobilitas Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_RPC_RAWTRANSACTION_UTIL_H
-#define BITCOIN_RPC_RAWTRANSACTION_UTIL_H
+#ifndef NOBILITAS_RPC_RAWTRANSACTION_UTIL_H
+#define NOBILITAS_RPC_RAWTRANSACTION_UTIL_H
 
 #include <map>
 
@@ -29,4 +29,4 @@ UniValue SignTransaction(CMutableTransaction& mtx, const UniValue& prevTxs, CBas
 /** Create a transaction from univalue parameters */
 CMutableTransaction ConstructTransaction(const UniValue& inputs_in, const UniValue& outputs_in, const UniValue& locktime, const UniValue& rbf);
 
-#endif // BITCOIN_RPC_RAWTRANSACTION_UTIL_H
+#endif // NOBILITAS_RPC_RAWTRANSACTION_UTIL_H

@@ -1,9 +1,9 @@
-// Copyright (c) 2016-2019 The Bitcoin Core developers
+// Copyright (c) 2016-2019 The Nobilitas Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_WALLET_TEST_WALLET_TEST_FIXTURE_H
-#define BITCOIN_WALLET_TEST_WALLET_TEST_FIXTURE_H
+#ifndef NOBILITAS_WALLET_TEST_WALLET_TEST_FIXTURE_H
+#define NOBILITAS_WALLET_TEST_WALLET_TEST_FIXTURE_H
 
 #include <test/setup_common.h>
 
@@ -23,4 +23,4 @@ struct WalletTestingSetup: public TestingSetup {
     CWallet m_wallet;
 };
 
-#endif // BITCOIN_WALLET_TEST_WALLET_TEST_FIXTURE_H
+#endif // NOBILITAS_WALLET_TEST_WALLET_TEST_FIXTURE_H

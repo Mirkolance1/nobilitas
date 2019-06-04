@@ -1,9 +1,9 @@
-// Copyright (c) 2011-2019 The Bitcoin Core developers
+// Copyright (c) 2011-2019 The Nobilitas Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_WALLETMODEL_H
-#define BITCOIN_QT_WALLETMODEL_H
+#ifndef NOBILITAS_QT_WALLETMODEL_H
+#define NOBILITAS_QT_WALLETMODEL_H
 
 #include <amount.h>
 #include <key.h>
@@ -11,7 +11,7 @@
 #include <script/standard.h>
 
 #if defined(HAVE_CONFIG_H)
-#include <config/bitcoin-config.h>
+#include <config/nobilitas-config.h>
 #endif
 
 #ifdef ENABLE_BIP70
@@ -121,7 +121,7 @@ public:
     }
 };
 
-/** Interface to Bitcoin wallet from Qt view code. */
+/** Interface to Nobilitas wallet from Qt view code. */
 class WalletModel : public QObject
 {
     Q_OBJECT
@@ -304,4 +304,4 @@ public Q_SLOTS:
     void pollBalanceChanged();
 };
 
-#endif // BITCOIN_QT_WALLETMODEL_H
+#endif // NOBILITAS_QT_WALLETMODEL_H

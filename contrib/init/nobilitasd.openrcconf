@@ -1,0 +1,33 @@
+# /etc/conf.d/nobilitasd: config file for /etc/init.d/nobilitasd
+
+# Config file location
+#NOBILITASD_CONFIGFILE="/etc/nobilitas/nobilitas.conf"
+
+# What directory to write pidfile to?  (created and owned by $NOBILITASD_USER)
+#NOBILITASD_PIDDIR="/var/run/nobilitasd"
+
+# What filename to give the pidfile
+#NOBILITASD_PIDFILE="${NOBILITASD_PIDDIR}/nobilitasd.pid"
+
+# Where to write nobilitasd data (be mindful that the blockchain is large)
+#NOBILITASD_DATADIR="/var/lib/nobilitasd"
+
+# User and group to own nobilitasd process
+#NOBILITASD_USER="nobilitas"
+#NOBILITASD_GROUP="nobilitas"
+
+# Path to nobilitasd executable
+#NOBILITASD_BIN="/usr/bin/nobilitasd"
+
+# Nice value to run nobilitasd under
+#NOBILITASD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#NOBILITASD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for nobilitasd to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+NOBILITASD_SIGTERM_TIMEOUT=60

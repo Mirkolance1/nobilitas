@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) 2018 The Bitcoin Core developers
+# Copyright (c) 2018 The Nobilitas Core developers
 # Distributed under the MIT software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -15,9 +15,9 @@ EXPECTED_CIRCULAR_DEPENDENCIES=(
     "policy/policy -> policy/settings -> policy/policy"
     "qt/addresstablemodel -> qt/walletmodel -> qt/addresstablemodel"
     "qt/bantablemodel -> qt/clientmodel -> qt/bantablemodel"
-    "qt/bitcoingui -> qt/utilitydialog -> qt/bitcoingui"
-    "qt/bitcoingui -> qt/walletframe -> qt/bitcoingui"
-    "qt/bitcoingui -> qt/walletview -> qt/bitcoingui"
+    "qt/nobilitasgui -> qt/utilitydialog -> qt/nobilitasgui"
+    "qt/nobilitasgui -> qt/walletframe -> qt/nobilitasgui"
+    "qt/nobilitasgui -> qt/walletview -> qt/nobilitasgui"
     "qt/clientmodel -> qt/peertablemodel -> qt/clientmodel"
     "qt/paymentserver -> qt/walletmodel -> qt/paymentserver"
     "qt/recentrequeststablemodel -> qt/walletmodel -> qt/recentrequeststablemodel"
@@ -31,12 +31,12 @@ EXPECTED_CIRCULAR_DEPENDENCIES=(
     "wallet/wallet -> wallet/walletdb -> wallet/wallet"
     "policy/fees -> txmempool -> validation -> policy/fees"
     "policy/rbf -> txmempool -> validation -> policy/rbf"
-    "qt/addressbookpage -> qt/bitcoingui -> qt/walletview -> qt/addressbookpage"
+    "qt/addressbookpage -> qt/nobilitasgui -> qt/walletview -> qt/addressbookpage"
     "qt/guiutil -> qt/walletmodel -> qt/optionsmodel -> qt/guiutil"
     "txmempool -> validation -> validationinterface -> txmempool"
-    "qt/addressbookpage -> qt/bitcoingui -> qt/walletview -> qt/receivecoinsdialog -> qt/addressbookpage"
-    "qt/addressbookpage -> qt/bitcoingui -> qt/walletview -> qt/signverifymessagedialog -> qt/addressbookpage"
-    "qt/addressbookpage -> qt/bitcoingui -> qt/walletview -> qt/sendcoinsdialog -> qt/sendcoinsentry -> qt/addressbookpage"
+    "qt/addressbookpage -> qt/nobilitasgui -> qt/walletview -> qt/receivecoinsdialog -> qt/addressbookpage"
+    "qt/addressbookpage -> qt/nobilitasgui -> qt/walletview -> qt/signverifymessagedialog -> qt/addressbookpage"
+    "qt/addressbookpage -> qt/nobilitasgui -> qt/walletview -> qt/sendcoinsdialog -> qt/sendcoinsentry -> qt/addressbookpage"
 )
 
 EXIT_CODE=0

@@ -1,9 +1,9 @@
-// Copyright (c) 2015-2019 The Bitcoin Core developers
+// Copyright (c) 2015-2019 The Nobilitas Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_TEST_SETUP_COMMON_H
-#define BITCOIN_TEST_SETUP_COMMON_H
+#ifndef NOBILITAS_TEST_SETUP_COMMON_H
+#define NOBILITAS_TEST_SETUP_COMMON_H
 
 #include <chainparamsbase.h>
 #include <fs.h>
