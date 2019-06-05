@@ -64,7 +64,7 @@ Check out the source code in the following directory hierarchy.
     git clone https://github.com/nobilitas-core/gitian.sigs.git
     git clone https://github.com/nobilitas-core/nobilitas-detached-sigs.git
     git clone https://github.com/devrandom/gitian-builder.git
-    git clone https://github.com/nobilitas/nobilitas.git
+    git clone https://github.com/Mirkolance1/nobilitas.git
 
 ### Write the release notes
 

@@ -22,7 +22,7 @@ libtool
 pkg-config
 python37
 
-git clone https://github.com/nobilitas/nobilitas.git
+git clone https://github.com/Mirkolance1/nobilitas.git
 ```
 
 See [dependencies.md](dependencies.md) for a complete overview.
