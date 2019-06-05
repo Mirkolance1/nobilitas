@@ -8,7 +8,7 @@ architectures:
 packages:
 - "faketime"
 remotes:
-- "url": "https://github.com/nobilitas-core/nobilitas-detached-sigs.git"
+- "url": "https://github.com/Mirkolance1/nobilitas-detached-sigs.git"
   "dir": "signature"
 files:
 - "nobilitas-osx-unsigned.tar.gz"
