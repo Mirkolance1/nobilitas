@@ -1,6 +1,6 @@
 Nobilitas Core version 0.17.1 is now available from:
 
-  <https://nobilitascore.org/bin/nobilitas-core-0.17.1/>
+  <https://bitcoincore.org/bin/nobilitas-core-0.17.1/>
 
 or through BitTorrent:
 
@@ -15,7 +15,7 @@ Please report bugs using the issue tracker at GitHub:
 
 To receive security and update notifications, please subscribe to:
 
-  <https://nobilitascore.org/en/list/announcements/join/>
+  <https://bitcoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============

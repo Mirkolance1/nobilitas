@@ -1,6 +1,6 @@
 Nobilitas Core version 0.16.3 is now available from:
 
-  <https://nobilitascore.org/bin/nobilitas-core-0.16.3/>
+  <https://bitcoincore.org/bin/nobilitas-core-0.16.3/>
 
 This is a new minor version release, with various bugfixes.
 
@@ -10,7 +10,7 @@ Please report bugs using the issue tracker at GitHub:
 
 To receive security and update notifications, please subscribe to:
 
-  <https://nobilitascore.org/en/list/announcements/join/>
+  <https://bitcoincore.org/en/list/announcements/join/>
 
 How to Upgrade
 ==============

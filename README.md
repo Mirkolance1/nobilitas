@@ -3,7 +3,7 @@ Nobilitas Core integration/staging tree
 
 [![Build Status](https://travis-ci.org/nobilitas/nobilitas.svg?branch=master)](https://travis-ci.org/nobilitas/nobilitas)
 
-https://nobilitascore.org
+https://bitcoincore.org
 
 What is Nobilitas?
 ----------------
@@ -15,8 +15,8 @@ out collectively by the network. Nobilitas Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Nobilitas Core software, see https://nobilitascore.org/en/download/, or read the
-[original whitepaper](https://nobilitascore.org/nobilitas.pdf).
+the Nobilitas Core software, see https://bitcoincore.org/en/download/, or read the
+[original whitepaper](https://bitcoincore.org/nobilitas.pdf).
 
 License
 -------
