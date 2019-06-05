@@ -1,0 +1,20 @@
+//#################
+var mesi = 3.7; //# Mesi per la durata totale
+var rew = 7821; //# Ricompensa iniziale per totale denaro rilasciato
+//#################
+
+var anni = 10;
+var space = 2.5; //minuti
+var halv = 60*60*24*30*mesi / (space*60);
+
+var tot = 0;
+var tot_mesi = 0;
+
+while(rew >= 0.000001) {
+  tot += rew*halv;
+  rew = rew/2;
+  tot_mesi += mesi;
+}
+
+console.log("consensus.nSubsidyHalvingInterval = "+halv);
+console.log("Denaro totale rilasciato dopo "+(tot_mesi/12)+" anni = " + tot);
