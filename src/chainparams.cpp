@@ -300,6 +300,9 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
+        vSeeds.emplace_back("107.191.46.67:19898");
+        vSeeds.emplace_back("199.247.12.26:19898");
+        vSeeds.emplace_back("199.247.26.46:19898");
         /*
         vSeeds.emplace_back("testnet-seed.nobilitas.jonasschnelli.ch");
         vSeeds.emplace_back("seed.tbtc.petertodd.org");
