@@ -54,7 +54,8 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
     const char* pszTimestamp = "La Cassazione: E reato commercializzare olio, resina e infiorescenze di cannabis";
-    const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
+    //
+    const CScript genesisOutputScript = CScript() << ParseHex("0415c363e931a23bfc3e57612251511e1c3b41d66339f225974fd6754d6100265e6478c11e7681ed573f33a619184f54382ea2e712800a894138aea19cdd45c3bc") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
 
@@ -103,10 +104,10 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 32-bit integer with any alignment.
          */
-        pchMessageStart[0] = 0xd0;
-        pchMessageStart[1] = 0xe1;
-        pchMessageStart[2] = 0xf5;
-        pchMessageStart[3] = 0xec;
+        pchMessageStart[0] = 0x07;
+        pchMessageStart[1] = 0x83;
+        pchMessageStart[2] = 0x19;
+        pchMessageStart[3] = 0x38;
         nDefaultPort = 9898;
         nPruneAfterHeight = 100000;
         m_assumed_blockchain_size = 0;
@@ -156,21 +157,12 @@ public:
         vSeeds.emplace_back("107.191.46.67:9898");
         vSeeds.emplace_back("199.247.12.26:9898");
         vSeeds.emplace_back("199.247.26.46:9898");
-        /*
-        vSeeds.emplace_back("seed.nobilitas.sipa.be"); // Pieter Wuille, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("dnsseed.bluematt.me"); // Matt Corallo, only supports x9
-        vSeeds.emplace_back("dnsseed.nobilitas.dashjr.org"); // Luke Dashjr
-        vSeeds.emplace_back("seed.nobilitasstats.com"); // Christian Decker, supports x1 - xf
-        vSeeds.emplace_back("seed.nobilitas.jonasschnelli.ch"); // Jonas Schnelli, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.btc.petertodd.org"); // Peter Todd, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed.nobilitas.sprovoost.nl"); // Sjors Provoost
-        vSeeds.emplace_back("dnsseed.emzy.de"); // Stephan Oeste
-        */
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,35);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0xff, 0x88, 0xB2, 0x1E};
-        base58Prefixes[EXT_SECRET_KEY] = {0xff, 0x88, 0xAD, 0xE4};
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,82);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,62);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,82);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0xf1, 0x88, 0xB2, 0x1E};
+        base58Prefixes[EXT_SECRET_KEY] = {0xf1, 0x88, 0xAD, 0xE4};
 
         bech32_hrp = "bc";
 
@@ -211,7 +203,7 @@ public:
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
         consensus.BIP65Height = 0; // 0x
         consensus.BIP66Height = 0; // 0x
-        consensus.powLimit = uint256S("00000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -238,10 +230,10 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x000000483a7f07db2966af2eee33d13d7c3de8cc1d236fb56b9abd3c8685b49d"); //721
 
-        pchMessageStart[0] = 0xfd;
-        pchMessageStart[1] = 0xd2;
-        pchMessageStart[2] = 0xc8;
-        pchMessageStart[3] = 0xf1;
+        pchMessageStart[0] = 0x93;
+        pchMessageStart[1] = 0x15;
+        pchMessageStart[2] = 0x44;
+        pchMessageStart[3] = 0x96;
         nDefaultPort = 19898;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 1;
@@ -288,17 +280,12 @@ public:
         vSeeds.emplace_back("107.191.46.67:19898");
         vSeeds.emplace_back("199.247.12.26:19898");
         vSeeds.emplace_back("199.247.26.46:19898");
-        /*
-        vSeeds.emplace_back("testnet-seed.nobilitas.jonasschnelli.ch");
-        vSeeds.emplace_back("seed.tbtc.petertodd.org");
-        vSeeds.emplace_back("seed.testnet.nobilitas.sprovoost.nl");
-        vSeeds.emplace_back("testnet-seed.bluematt.me"); // Just a static list of stable node(s), only supports x9
-        */
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,37);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,54);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x05, 0x35, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0x05, 0x35, 0x83, 0x94};
 
         bech32_hrp = "tb";
 
@@ -365,10 +352,10 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x01c6d142f1b96a4587f97083d5bacc54cd5ffc8e2da6b0c9df8654fe1415ba96");
 
-        pchMessageStart[0] = 0xfa;
-        pchMessageStart[1] = 0xbf;
-        pchMessageStart[2] = 0xb5;
-        pchMessageStart[3] = 0xda;
+        pchMessageStart[0] = 0x93;
+        pchMessageStart[1] = 0x98;
+        pchMessageStart[2] = 0x23;
+        pchMessageStart[3] = 0x71;
         nDefaultPort = 18444;
         nPruneAfterHeight = 1000;
         m_assumed_blockchain_size = 0;
@@ -430,11 +417,11 @@ public:
             0
         };
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
-        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
-        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
-        base58Prefixes[EXT_PUBLIC_KEY] = {0x04, 0x35, 0x87, 0xCF};
-        base58Prefixes[EXT_SECRET_KEY] = {0x04, 0x35, 0x83, 0x94};
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,35);
+        base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,37);
+        base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,54);
+        base58Prefixes[EXT_PUBLIC_KEY] = {0x05, 0x35, 0x87, 0xCF};
+        base58Prefixes[EXT_SECRET_KEY] = {0x05, 0x35, 0x83, 0x94};
 
         bech32_hrp = "bcrt";
 
