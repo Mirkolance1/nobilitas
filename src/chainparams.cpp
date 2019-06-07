@@ -338,11 +338,11 @@ public:
         strNetworkID = "regtest";
         consensus.nSubsidyHalvingInterval = 150;
         consensus.BIP16Exception = uint256();
-        consensus.BIP34Height = 500; // BIP34 activated on regtest (Used in functional tests)
+        consensus.BIP34Height = 0; // BIP34 activated on regtest (Used in functional tests)
         consensus.BIP34Hash = uint256();
-        consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in functional tests)
-        consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in functional tests)
-        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.BIP65Height = 0; // BIP65 activated on regtest (Used in functional tests)
+        consensus.BIP66Height = 0; // BIP66 activated on regtest (Used in functional tests)
+        consensus.powLimit = uint256S("fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
         consensus.fPowAllowMinDifficultyBlocks = true;
@@ -360,10 +360,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0dddf7d3897019d10400650b3b077c85e26f5436b8e7ce0ea5a65888f9c3a508");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0dddf7d3897019d10400650b3b077c85e26f5436b8e7ce0ea5a65888f9c3a508");
+        consensus.defaultAssumeValid = uint256S("0x01c6d142f1b96a4587f97083d5bacc54cd5ffc8e2da6b0c9df8654fe1415ba96");
 
         pchMessageStart[0] = 0xfa;
         pchMessageStart[1] = 0xbf;
@@ -376,9 +376,9 @@ public:
 
         UpdateVersionBitsParametersFromArgs(args);
 
-        genesis = CreateGenesisBlock(1559236759, 37, 0x200f0f0f, 1, 7821 * COIN);
+        genesis = CreateGenesisBlock(1559236759, 43, 0x200f0f0f, 1, 50 * COIN);
 
-        consensus.hashGenesisBlock = uint256S("0x0dddf7d3897019d10400650b3b077c85e26f5436b8e7ce0ea5a65888f9c3a508");
+        consensus.hashGenesisBlock = uint256S("0x01c6d142f1b96a4587f97083d5bacc54cd5ffc8e2da6b0c9df8654fe1415ba96");
         //Generate new hash
         if (true && (genesis.GetHash() != consensus.hashGenesisBlock)) {
             std::cout << std::string("Begin calculating CRegTestnet Genesis Block:\n");
@@ -408,19 +408,19 @@ public:
         }
 
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x0dddf7d3897019d10400650b3b077c85e26f5436b8e7ce0ea5a65888f9c3a508"));
-        assert(genesis.hashMerkleRoot == uint256S("0x361ecde049f65e1ed9697ca2f8c9d22c8902a01aca44888b30e606fc4c1c0d33"));
+        assert(consensus.hashGenesisBlock == uint256S("0x01c6d142f1b96a4587f97083d5bacc54cd5ffc8e2da6b0c9df8654fe1415ba96"));
+        assert(genesis.hashMerkleRoot == uint256S("0xdda8d3ce207116b286cb393770e0edb2e62cb18c2bd912e44c372f5cabaad62c"));
 
         vFixedSeeds.clear(); //!< Regtest mode doesn't have any fixed seeds.
         vSeeds.clear();      //!< Regtest mode doesn't have any DNS seeds.
 
-        fDefaultConsistencyChecks = true;
+        fDefaultConsistencyChecks = false;
         fRequireStandard = false;
         fMineBlocksOnDemand = true;
 
         checkpointData = {
             {
-                {0, uint256S("0x0dddf7d3897019d10400650b3b077c85e26f5436b8e7ce0ea5a65888f9c3a508")},
+                {0, uint256S("0x01c6d142f1b96a4587f97083d5bacc54cd5ffc8e2da6b0c9df8654fe1415ba96")},
             }
         };
 
