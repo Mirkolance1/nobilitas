@@ -192,11 +192,13 @@ BOOST_AUTO_TEST_CASE(addrman_select)
 
     // Add three addresses to new table.
     CService addr2 = ResolveService("250.3.1.1", 9898);
-    CService addr3 = ResolveService("250.3.2.2", 9999);
+    CService addr3 = ResolveService("250.3.2.2", 9898);
     CService addr4 = ResolveService("250.3.3.3", 9999);
 
     BOOST_CHECK(addrman.Add(CAddress(addr2, NODE_NONE), ResolveService("250.3.1.1", 9898)));
+    BOOST_CHECK_EQUAL(addrman.size(), 2U);
     BOOST_CHECK(addrman.Add(CAddress(addr3, NODE_NONE), ResolveService("250.3.1.1", 9898)));
+    BOOST_CHECK_EQUAL(addrman.size(), 3U);
     BOOST_CHECK(addrman.Add(CAddress(addr4, NODE_NONE), ResolveService("250.4.1.1", 9898)));
 
     // Add three addresses to tried table.
@@ -425,7 +427,7 @@ BOOST_AUTO_TEST_CASE(caddrinfo_get_tried_bucket)
     uint256 nKey2 = (uint256)(CHashWriter(SER_GETHASH, 0) << 2).GetHash();
 
 
-    BOOST_CHECK_EQUAL(info1.GetTriedBucket(nKey1), 40);
+    BOOST_CHECK_EQUAL(info1.GetTriedBucket(nKey1), 120);
 
     // Test: Make sure key actually randomizes bucket placement. A fail on
     //  this test could be a security issue.
