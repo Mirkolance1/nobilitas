@@ -94,7 +94,7 @@ public:
       consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1510704000; // November 15th, 2017.
 
       // The best chain should have at least this much work.
-      consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000051dc8b82f450202ecb3d471");
+      consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
       // By default assume that the signatures in ancestors of this block are valid.
       consensus.defaultAssumeValid = uint256S("0x000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f"); //0
@@ -170,7 +170,7 @@ public:
 
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
-        fMineBlocksOnDemand = true;
+        fMineBlocksOnDemand = false;
 
         checkpointData = {
             {
@@ -225,7 +225,7 @@ public:
       consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1493596800; // May 1st 2017
 
       // The best chain should have at least this much work.
-      consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000000000000000000ab00aa1");
+      consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
       // By default assume that the signatures in ancestors of this block are valid.
       consensus.defaultAssumeValid = uint256S("0x00000e2ea1169d9a903bfd8472710e736afa311611c1599ebdd2a6090fd27d9f"); //170
