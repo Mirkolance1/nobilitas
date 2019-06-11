@@ -225,7 +225,7 @@ public:
       consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1493596800; // May 1st 2017
 
       // The best chain should have at least this much work.
-      consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000007dbe94253893cbd463");
+      consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000cbd463");
 
       // By default assume that the signatures in ancestors of this block are valid.
       consensus.defaultAssumeValid = uint256S("0x000000000933ea01ad0ee984209779baaec3ced90fa3f408719526f8d77f4943"); //0
