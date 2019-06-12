@@ -1,5 +1,5 @@
 ---
-name: "nobilitas-core-win-0.19"
+name: "nobilitas-core-win-0.18"
 enable_cache: true
 distro: "ubuntu"
 suites:

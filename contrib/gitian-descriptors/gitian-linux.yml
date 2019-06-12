@@ -1,5 +1,5 @@
 ---
-name: "nobilitas-core-linux-0.19"
+name: "nobilitas-core-linux-0.18"
 enable_cache: true
 distro: "ubuntu"
 suites:
